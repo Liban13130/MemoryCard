@@ -1,0 +1,45 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: lato, Helvetica, sans-serif;
+  background: linear-gradient(to right, #d17608, #ec3503);
+  padding: clamp(20px, 5vw, 50px) 20px 10px;
+}
+
+h1,
+.advice,
+.score{
+  text-align: center;
+  color: #f1f1f1;
+}
+
+h1{
+  font-family: Raleway, sans-serif;
+  font-size: clamp(25px, 7vw, 70px);
+  font-weight: 300;
+}
+
+.advice{
+  font-size: clamp(16px, 2.5vw, 25px);
+  margin-top: 10px;
+}
+
+.score{
+  font-size: clamp(16px, 2.5vw, 20px);
+  margin-top: 15px;
+}
+
+h1 span{
+  font-weight: 800;
+}
+
+img{
+  width: 30px;
+}
