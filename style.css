@@ -40,6 +40,63 @@ h1 span{
   font-weight: 800;
 }
 
-img{
-  width: 30px;
+.grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /*4 colonnes qui se partage l'espace*/
+  max-width: 800px;
+  gap: 10px;
+  margin: 30px auto 0;
+}
+
+.card{
+  aspect-ratio: 1/1; /*Donne une taille a tout les carré en rapport avec le 1FR. La taille est partagé entre toute les card*/
+  perspective: 1000px; /*Ca doone un effet de perspective a l'utilisateur. Les 1000px sont souvent utilisés*/
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease-out;
+}
+
+.card:hover{
+  transform: scale(1.02);
+}
+
+.double-face{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d; /*L'effet de perspective est crée sur le parent (card) alors pendant l'effet qui agira sur l'enfant on demande garder l'effet de 3D*/
+  will-change: transform; /*Pour eviter quelques bug sur l'animation et la perspective*/
+  transition: transform 0.6s;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.back{
+  backface-visibility: hidden; /* Ne fonctionne qu'avec un environnement 3D comme pour ce cas la*/
+  -webkit-backface-visibility: hidden; /*Pour que ça marche mieux sur les navigateurs*/
+}
+
+.face{
+  transform: rotateY(180deg); /* pas nécéssaire de le retourner a nouveau MAIS dans le cas d'un texte c'est pour eviter que le texte ne soit a l'envers*/
+}
+
+.face,
+.back{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  border-radius: 5px;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face img,
+.back img{
+  width: 60%;
+}
+
+.active{
+  transform: rotateY(180deg);
 }
