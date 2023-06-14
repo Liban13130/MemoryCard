@@ -52,7 +52,6 @@ h1 span{
   aspect-ratio: 1/1; /*Donne une taille a tout les carré en rapport avec le 1FR. La taille est partagé entre toute les card*/
   perspective: 1000px; /*Ca doone un effet de perspective a l'utilisateur. Les 1000px sont souvent utilisés*/
   cursor: pointer;
-  user-select: none;
   transition: transform 0.2s ease-out;
 }
 
@@ -68,6 +67,7 @@ h1 span{
   will-change: transform; /*Pour eviter quelques bug sur l'animation et la perspective*/
   transition: transform 0.6s;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
 }
 
 .back{
@@ -84,12 +84,13 @@ h1 span{
   position: absolute;
   height: 100%;
   width: 100%;
-  pointer-events: none;
   border-radius: 5px;
   background: #f1f1f1;
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none; /*Etant donné que plusieurs éléments sont superposés les uns sur les autres alors on retire l'evenement du click pour que quand on clique sur la card alors
+                          on ne clique en réalité que sur un seul au lieu de 3 à la fois par exemple*/
 }
 
 .face img,
